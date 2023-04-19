@@ -21,7 +21,7 @@ namespace HeadlessCurbYourUndoManager
             Type neosHeadless = AccessTools.TypeByName("NeosHeadless.Program");
             if (neosHeadless != null)
             {
-                Msg("Patching.");
+                Debug("Patching.");
                 harmony.PatchAll();
             }
         }
@@ -31,7 +31,7 @@ namespace HeadlessCurbYourUndoManager
         {
             public static bool Prefix(UndoManager __instance)
             {
-                Msg($"UndoManager attached in world {__instance.World.Name}!");
+                Debug($"UndoManager attached in world {__instance.World.Name}!");
 
                 __instance.World.RootSlot.ChildAdded += (slot, child) =>
                 {
@@ -39,15 +39,15 @@ namespace HeadlessCurbYourUndoManager
                     {
                         if (child.Name == "Undo Manager")
                         {
-                            Msg("Found the extra Undo Manager slot!");
+                            Debug("Found the extra Undo Manager slot!");
                             var undoManager = child.GetComponent<UndoManager>();
                             if (undoManager != null)
                             {
-                                Msg("Found the extra UndoManager component! Destroying it!");
+                                Debug("Found the extra UndoManager component! Destroying it!");
                                 child.Name = "Destroyed Undo Manager";
                                 undoManager.Destroy();
 
-                                Msg("Respawning all users.");
+                                Debug("Respawning all users.");
                                 foreach (User u in __instance.World.FindUsers((User u2) => u2.ReferenceID != __instance.LocalUser.ReferenceID))
                                 {
                                     u.Root.Slot.Destroy();
