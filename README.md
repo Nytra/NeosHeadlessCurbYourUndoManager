@@ -1,4 +1,4 @@
-# ModNameGoesHere
+# HeadlessCurbYourUndoManager
 
 A [NeosModLoader](https://github.com/zkxs/NeosModLoader) mod for [Neos VR](https://neos.com/) Headless Client that stops the headless from spawning more than one UndoManager in the world.
 
