@@ -2,6 +2,10 @@
 
 A [NeosModLoader](https://github.com/zkxs/NeosModLoader) mod for [Neos VR](https://neos.com/) Headless Client that stops the headless from spawning more than one UndoManager in the world, which normally breaks Undo for everyone, but with this mod it will be fixed!
 
+It must be installed on the Neos Headless Client which is hosting the session for it to work.
+
+It will delete the extra UndoManager compoenent and then respawn all users, which will fix undo. It will only do this when the very first user joins the session.
+
 ## Installation
 1. Install [NeosModLoader](https://github.com/zkxs/NeosModLoader).
 1. Place [
