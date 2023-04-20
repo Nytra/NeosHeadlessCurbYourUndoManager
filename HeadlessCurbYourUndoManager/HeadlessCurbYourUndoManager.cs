@@ -2,9 +2,7 @@
 using FrooxEngine.Undo;
 using HarmonyLib;
 using NeosModLoader;
-using System.Reflection;
 using System;
-using System.Linq;
 
 namespace HeadlessCurbYourUndoManager
 {
@@ -35,7 +33,7 @@ namespace HeadlessCurbYourUndoManager
 
                 __instance.World.RootSlot.ChildAdded += (slot, child) =>
                 {
-                    __instance.RunInUpdates(0, () =>
+                    child.RunInUpdates(0, () =>
                     {
                         if (child.Name == "Undo Manager")
                         {
