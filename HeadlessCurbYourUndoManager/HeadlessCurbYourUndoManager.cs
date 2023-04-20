@@ -42,6 +42,8 @@ namespace HeadlessCurbYourUndoManager
                             if (undoManager != null)
                             {
                                 Debug("Found the extra UndoManager component! Destroying it!");
+
+                                // The slot is marked as protected, so it cannot be destroyed, so here I am just renaming it to something else
                                 child.Name = "Destroyed Undo Manager";
                                 undoManager.Destroy();
 
