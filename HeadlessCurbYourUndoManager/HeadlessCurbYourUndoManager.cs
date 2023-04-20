@@ -3,6 +3,7 @@ using FrooxEngine.Undo;
 using HarmonyLib;
 using NeosModLoader;
 using System;
+using System.Linq;
 
 namespace HeadlessCurbYourUndoManager
 {
@@ -39,7 +40,7 @@ namespace HeadlessCurbYourUndoManager
                         {
                             Debug("Found the extra Undo Manager slot!");
                             var undoManager = child.GetComponent<UndoManager>();
-                            if (undoManager != null)
+                            if (undoManager != null && child.World.RootSlot.GetComponentsInChildren<UndoManager>().Count >= 2)
                             {
                                 Debug("Found the extra UndoManager component! Destroying it!");
 
