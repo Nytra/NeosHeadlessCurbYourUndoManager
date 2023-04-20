@@ -10,7 +10,7 @@ namespace HeadlessCurbYourUndoManager
     {
         public override string Name => "HeadlessCurbYourUndoManager";
         public override string Author => "Nytra";
-        public override string Version => "1.0.0";
+        public override string Version => "1.0.1";
         public override string Link => "https://github.com/Nytra/NeosHeadlessCurbYourUndoManager";
 
         public override void OnEngineInit()
