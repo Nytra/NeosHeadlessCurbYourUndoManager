@@ -62,6 +62,7 @@ namespace HeadlessCurbYourUndoManager
 											u.Root.Slot.Destroy();
 										}
 
+										// disable the mod in this world because the destroy code already executed
 										worldDontDestroyMap[child.World] = true;
 
 										Debug($"Mod has been disabled in world {child.World.Name}.");
@@ -75,11 +76,21 @@ namespace HeadlessCurbYourUndoManager
 					{
 						if (worldDontDestroyMap[user.World] == false)
 						{
-							// user spawn disables the mod
+							// user spawn disables the mod in this world
 							worldDontDestroyMap[user.World] = true;
 							Debug($"User spawned. Mod has been disabled in world {user.World.Name}.");
 						}
 					};
+
+					__instance.World.RunInSeconds(5, () => 
+					{
+						if (worldDontDestroyMap[__instance.World] == false)
+						{
+							// disable the mod in this world after 5 seconds
+							worldDontDestroyMap[__instance.World] = true;
+							Debug($"Timer elapsed. Mod has been disabled in world {__instance.World.Name}.");
+						}
+					});
 				}
 
 				return true;
