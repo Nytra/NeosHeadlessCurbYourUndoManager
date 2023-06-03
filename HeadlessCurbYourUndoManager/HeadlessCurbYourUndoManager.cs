@@ -12,7 +12,7 @@ namespace HeadlessCurbYourUndoManager
 	{
 		public override string Name => "HeadlessCurbYourUndoManager";
 		public override string Author => "Nytra";
-		public override string Version => "1.0.3";
+		public override string Version => "1.0.4";
 		public override string Link => "https://github.com/Nytra/NeosHeadlessCurbYourUndoManager";
 
 		private static Dictionary<World, bool> worldDontDestroyMap = new Dictionary<World, bool>();
